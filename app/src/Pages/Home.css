@@ -38,6 +38,38 @@ main.dragging .divider {
   color: transparent;
 }
 
+#toggle-menu-button {
+  position: absolute;
+  padding: .4rem;
+  border-radius: .25rem;
+  top: .5%;
+  left: 2%;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+}
+#toggle-menu-button svg {
+  width: 100%;
+  fill: rgb(106, 0, 255);
+}
+#contact-section {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  background: black;
+  background-image: linear-gradient(to top right, rgba(33, 0, 180, 0.2), rgba(182, 0, 233, 0.2));
+}
+
+#message-section {
+  height: 100vh;
+  width: 65%;
+  background: linear-gradient(to bottom right, rgb(40, 40, 40), rgb(15, 15, 15));
+  display: flex;
+  flex-direction: column;
+}
+
 .divider {
   position: absolute;
   width: .3rem;
@@ -52,4 +84,29 @@ main.dragging .divider {
 .divider:active {
   width: 1rem;
   /* translate: -50%; */
+}
+
+@media screen and (max-width: 500px) {
+  #toggle-menu-button {
+    display: initial;
+  }
+  #contact-section, #message-section {
+    width: 100%;
+  }
+  #contact-section {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    translate: -125%;
+    padding: 3rem 0 0;
+    z-index: 9;
+    transition: .3s;
+  } 
+  #contact-section.visible {
+    translate: 0;
+  }
+  .divider {
+      display: none;
+  }
 }

@@ -6,7 +6,6 @@ import './ContactSection.css';
 function ContactSection({currentUser, contactSection, contacts, handleChatChange}) {
     const [currentUserName, setCurrentUserName] = useState();
     const [currentSelected, setCurrentSelected] = useState();
-    const [currentUserImage, setCurrentUserImage] = useState();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,12 +18,14 @@ function ContactSection({currentUser, contactSection, contacts, handleChatChange
     function changeCurrentChat(index, contact) {
         setCurrentSelected(index);
         handleChatChange(contact);
+        contactSection.current.classList.remove('visible')
     }
 
     function logout() {
         localStorage.clear('chat-app-user');
         navigate('/register');
     }
+
     return (
         <aside id="contact-section" ref={contactSection}>
             <div className="contacts-wrapper">

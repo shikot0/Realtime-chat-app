@@ -48,6 +48,9 @@ module.exports.login = async (req, res, next) => {
     }
 }  
 
+module.exports.profilePhoto = async (req, res, next) => {
+    
+}
 
 module.exports.getAllUsers = async (req, res, next) => {
     try {

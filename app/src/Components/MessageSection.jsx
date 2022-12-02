@@ -89,7 +89,10 @@ function MessageSection({currentChat, currentUser, messageSection, socket}) {
     return (
         <section id="message-section" ref={messageSection}>
             {currentChat ?
-                <>
+                <>  
+                    <div className="message-banner">
+                        <h2>{currentChat.username}</h2>
+                    </div>
                     <div className="messages-wrapper">
                         {messages.map((message, index) => {
                             if(message.fromSelf) {
