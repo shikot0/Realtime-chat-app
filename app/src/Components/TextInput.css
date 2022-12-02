@@ -1,0 +1,95 @@
+#text-input {
+    padding: .5rem 1rem;
+	font-size: clamp(.6rem, 2vw, 1rem);
+	width: 100%;
+	color: white;
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,
+	            linear-gradient(to bottom left, rgb(34, 0, 255), rgb(144, 0, 255)) border-box;
+  	border: 2px solid transparent;
+	position: relative;
+	z-index: 3;
+	border-radius: .4rem;
+}
+#text-input:focus {
+    outline: none;
+    /* border: 2px solid darkorchid; */
+    box-shadow: 0 0 .5rem rgb(184, 69, 242);
+}
+#message-section form {
+    height: 9%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .25rem;
+}
+.send-message-button {
+    /* width: 5rem;
+    border: none;
+    background: rgb(125, 44, 125);
+    border-radius: .3rem;
+    padding: .5rem;
+    background: black;
+    cursor: pointer; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem 1.25rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) padding-box,
+                linear-gradient(to bottom left, rgb(34, 0, 255), rgb(144, 0, 255)) border-box;
+                border: 2px solid transparent;
+                cursor: pointer;
+    transition: .1s;
+    overflow: hidden;
+}
+.send-message-button:hover svg {
+    scale: 1.1;
+    rotate: 45deg;
+    animation: hover .5s linear infinite forwards;
+}
+@keyframes hover {
+    0% {
+        translate: 0%;
+    }
+    25% {
+        translate: -15%;
+    }
+    75% {
+        translate: 15%;
+    }
+    100% {
+        translate: 0%;
+    }
+}
+.send-message-button:active {
+    scale: 1.1;
+}
+.send-message-button svg {
+    width: 1.5rem;
+    transition: .2s;
+    fill: rgb(187, 98, 255);
+    position: relative;
+}
+.send-message-button:active svg{
+    animation: flying-animation .3s linear 1 forwards;
+}
+@keyframes flying-animation {
+    0% {
+        translate: none;
+    }
+    25% {
+        translate: 200%;
+    }
+    50% {
+        left: -500%;
+    }
+    75% {
+        translate: -325%;
+        left: initial;
+    }
+    100% {
+        /* left: initial; */
+        translate: none;
+    }
+}

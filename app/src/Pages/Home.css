@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Red Hat Text'
+}
+
+main.dragging, main.dragging * {
+  pointer-events: none;
+}
+main.dragging .divider {
+  pointer-events: all;
+} 
+#home-page {
+  /* display: grid;
+  grid-template-columns: 35% 65%; */
+  display: flex;
+  min-height: 100vh;  
+  position: relative;
+} 
+
+.cta {
+  border: none;
+  border-radius: .5rem;
+  padding: .8rem 1rem;
+  background: black;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) padding-box,
+              linear-gradient(to bottom left, rgb(34, 0, 255), rgb(144, 0, 255)) border-box;
+  border: 2px solid transparent;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.gradient-text {
+  background-image: linear-gradient(to bottom left, rgb(34, 0, 255), rgb(144, 0, 255));
+  background-clip: text;
+  color: transparent;
+}
+
+.divider {
+  position: absolute;
+  width: .3rem;
+  height: 100%;
+  top: 0;
+  left: var(--left);
+  background: rgba(255, 255, 255, 0.3);
+  cursor: ew-resize;
+  z-index: 10;
+  transition: width .2s;
+}
+.divider:active {
+  width: 1rem;
+  /* translate: -50%; */
+}
