@@ -48,8 +48,19 @@ module.exports.login = async (req, res, next) => {
     }
 }  
 
-module.exports.profilePhoto = async (req, res, next) => {
-    
+module.exports.setProfilePicture = async (req, res, next) => {
+    try {
+        const userId = req.params.id;
+        const profilePicture = req.body;
+        console.log(req.body)
+        console.log(profilePicture)
+        const userData = await User.findByIdAndUpdate(userId,{
+            isProfilePictureSet: true,
+            profilePicture
+        })
+    } catch(err) {
+        next(err)
+    }
 }
 
 module.exports.getAllUsers = async (req, res, next) => {

@@ -10,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 1.5rem;
     background-image: linear-gradient(to top right, rgb(33, 0, 180), rgba(182, 0, 233, 0.8));
     width: 90%;
     height: 90%;
@@ -20,15 +20,20 @@
     padding: 2rem;
 }
 #profile-photo-page form .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 7rem;
     height: 7rem;
-    border-radius: 10rem;
-    padding: 1rem;
+    overflow: hidden;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)) padding-box,
                 linear-gradient(to bottom left, rgba(34, 0, 255, 0.5), rgba(144, 0, 255, 0.5)) border-box;
     border: 3px solid transparent;
+    border-radius: 10rem;
 }
-#profile-photo-page form img {
-    width: 100%;
+.profile-photo {
+	object-fit: cover; 
+    object-position: center;
+	width: 100%;
     height: 100%;
 }
