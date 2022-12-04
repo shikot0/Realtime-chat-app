@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const fileuploader = require('express-fileupload');
 const userRoutes = require('./Routes/userRoutes');
 const messageRoutes = require('./Routes/messageRoutes');
 const socket = require('socket.io');
@@ -9,6 +10,7 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(fileuploader());
 app.use('/api/auth', userRoutes)
 app.use('/api/messages', messageRoutes)
  

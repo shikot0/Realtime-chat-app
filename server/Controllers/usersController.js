@@ -32,7 +32,6 @@ module.exports.login = async (req, res, next) => {
         const user = await User.findOne({username});
 
         if(!user) { 
-            // console.log('failure') 
             return res.json({msg: 'Incorrect username or password', status: false});
         }
 
@@ -50,28 +49,38 @@ module.exports.login = async (req, res, next) => {
 
 module.exports.setProfilePicture = async (req, res, next) => {
     try {
-        const userId = req.params.id;
-        const profilePicture = req.body;
-        console.log(req.body)
-        console.log(profilePicture)
-        const userData = await User.findByIdAndUpdate(userId,{
-            isProfilePictureSet: true,
-            profilePicture
-        })
+        const id = req.params.id;
+        const user = await User.findOne({_id: id})
+        const {data, mimetype} = req.files.fileupload;
+        console.log(req.files.fileupload)
+        user.profilePicture.Data = data;
+        user.profilePicture.ContentType = mimetype;
+        user.isProfilePictureSet = true; 
+
+        await user.save();
+        return res.json({status: true, user})
     } catch(err) {
         next(err)
     }
 }
 
+module.exports.getProfilePicture = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const user = await User.findOne({_id: id}); 
+        res.type('Content-Type', user.profilePicture.ContentType)
+        return res.status(200).send(user.profilePicture.Data)
+    } catch(err) {
+        next(err)
+    }
+}
 module.exports.getAllUsers = async (req, res, next) => {
     try {
         const users = await User.find({_id:{$ne: req.params.id}}).select([
             "email",
             "username", 
-            "avatarImage",
             "_id",
         ])
-        // console.log('test') 
         if(users) {
             return res.json(users);
         }else {

@@ -80,7 +80,7 @@ function SignUpPage() {
                 toast.error(data.msg, toastOptions);
             }else if(data.ok === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(response.user));
-                navigate('/profilephoto')
+                navigate('/profilepicture')
             }
             
         }

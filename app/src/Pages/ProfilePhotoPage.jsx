@@ -27,17 +27,20 @@ function ProfilePhotoPage() {
         }
     }
 
-    function handleSetUserImage(e) {
+    async function handleSetUserImage(e) {
         e.preventDefault()
         if(currentUserImage) {
             const formData = new FormData();
             formData.append('fileupload', currentUserImage);
-            console.log(formData)
-            fetch(`${setProfilePictureRoute}/${user._id}`, {
+            const data = await fetch(`${setProfilePictureRoute}/${user._id}`, {
                 method: 'POST',
-                body: formData,
-                // dataType: 'jsonp' 
-            }) 
+                body: formData, 
+            }).then(res => res.json())
+            .then(data => data);
+
+            if(data.status) {
+                navigate('/') 
+            }
         }else {
             toast.error('Please choose an image for your profile',toastOptions)
         }

@@ -12,7 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/register" element={<SignUpPage/>}/>
-            <Route path="/profilephoto" element={<ProfilePhotoPage/>}/>
+            <Route path="/profilepicture" element={<ProfilePhotoPage/>}/>
           </Routes>
         </BrowserRouter>
       </main> 
