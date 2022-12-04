@@ -1,6 +1,6 @@
 # Steps
 
-**First make sure that you have Mongodb installed or it won't work.**
+**First make sure that you have both Mongodb and Node installed or it won't work.**
 > ### Clone the repository
 Run the following command in your terminal:
 ```
