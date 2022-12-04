@@ -14,6 +14,14 @@ function SignUpPage() {
         confirmPassword: "",
     });
 
+    const toastOptions = {
+        position: "top-right",
+        autoClose: 8000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+    }
+
     useEffect(() => {
         if(localStorage.getItem('chat-app-user')) {
             navigate('/')
@@ -45,14 +53,6 @@ function SignUpPage() {
 
     function handleLogin(e) {
         setLoginData({...loginData, [e.target.name]: e.target.value})
-    }
-
-    const toastOptions = {
-        position: "top-right",
-        autoClose: 8000,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "dark",
     }
 
     async function handleSignUpValidation() {
