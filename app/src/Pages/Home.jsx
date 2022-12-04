@@ -40,13 +40,6 @@ function Home() {
             })
         }
     }, [currentUser])
- 
-    // useEffect(() => {
-    //     if(currentUser) {
-    //         socket.current = io(host);
-    //         socket.current.emit('add-user', currentUser._id)
-    //     }
-    // }, [currentUser])
 
     useEffect(() => {
         if(isDragging) {
@@ -54,14 +47,12 @@ function Home() {
         }else {
             document.querySelector('main').classList.remove('dragging')
         }
-        console.log(isDragging)
     }, [isDragging])
 
     function handleMouseMove(e) {
-         if(isDragging) {
-             const availWidth = window.innerWidth;
+        const availWidth = window.innerWidth;
+        if(isDragging) {
              let xValue = (e.clientX/availWidth) * 100;
-             // console.log(xValue)
              if(xValue < 30) {
                  xValue = 30;
              }else if(xValue > 80) {
@@ -70,25 +61,9 @@ function Home() {
              contactSection.current.style.width = `${xValue}%`
              messageSection.current.style.width = `${100 - xValue}%`
              divider.current.style.setProperty("--left", `calc(${xValue}% - ${divider.current.offsetWidth/4}px)`);
-             // divider.current.style.left = `calc(${xValue}% - ${divider.current.offsetWidth/2}px)`;
-             // divider.current.style.filter = `hue-rotate(-${xValue/4}deg)`
-         }else {
-            return
-         }
+        }
     }
 
-
-
-    // divider.current.addEventListener('pointerup', () => {
-    //     setIsDragging(false)
-    //     console.log('dkjfal;j')
-    // })
-    window.addEventListener('mousemove', e => {
-        handleMouseMove(e)
-    })
-    window.addEventListener('touchend', () => {
-        setIsDragging(false);
-    })
  
     function handleChatChange(chat) {
         setCurrentChat(chat);
@@ -106,10 +81,7 @@ function Home() {
                 ref={divider}
                 onMouseDown={(e) => {if(e.target === divider.current) {setIsDragging(true)}}}
                 onTouchStart={(e) => {if(e.target === divider.current) {setIsDragging(true)}}}
-                // onMouseDown={() => {setIsDragging(true)}}
-                // onTouchStart={() => {setIsDragging(true)}}
-                // onMouseMove={handleMouseMove}
-                // onTouchMove={e => {handleMouseMove(e.touches[0])}}
+                onMouseMove={e => {handleMouseMove(e)}}
                 onMouseLeave={() => {setIsDragging(false)}}
                 onMouseUp={() => {setIsDragging(false)}}
                 onTouchEnd={() => {setIsDragging(false)}}
