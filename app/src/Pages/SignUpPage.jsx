@@ -76,9 +76,10 @@ function SignUpPage() {
                 })
             })
             const response = await data.json();
-            if(data.ok === false) {
-                toast.error(data.msg, toastOptions);
-            }else if(data.ok === true) {
+            console.log(response)
+            if(response.status === false) {
+                toast.error(response.msg, toastOptions);
+            }else if(response.status === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(response.user));
                 navigate('/profilepicture')
             }

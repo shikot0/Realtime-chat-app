@@ -52,7 +52,6 @@ module.exports.setProfilePicture = async (req, res, next) => {
         const id = req.params.id;
         const user = await User.findOne({_id: id})
         const {data, mimetype} = req.files.fileupload;
-        console.log(req.files.fileupload)
         user.profilePicture.Data = data;
         user.profilePicture.ContentType = mimetype;
         user.isProfilePictureSet = true; 

@@ -29,9 +29,6 @@ module.exports.getAllMessages = async (req, res, next) => {
                 $all: [sender.toString(),to.toString()],
             },
         }).sort({updatedAt: 1});
-
-        // {users: {$all: ['6387d02a915b91bfc255ca09','6389091c377d2d1058277861']}}
-        // {users: {$all: ['6389091c377d2d1058277861','6387d02a915b91bfc255ca09']}}
         
         const projectedMessages = messages.map(msg => {
             return {
