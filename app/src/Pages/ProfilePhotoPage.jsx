@@ -20,7 +20,6 @@ function ProfilePhotoPage() {
 
     function handleShowUserImage(e) {
         if(e.target.files[0].size < 400000) {
-            console.log(e.target.files[0])
             setCurrentUserImage(e.target.files[0]);
         }else {
             toast.error('Please choose a smaller image', toastOptions)
@@ -44,12 +43,13 @@ function ProfilePhotoPage() {
         }else {
             toast.error('Please choose an image for your profile',toastOptions)
         }
-     }
+    }
     useEffect(() => {
         if(!user) {
             navigate('/register')
         }
-    }, [user, navigate])
+    }, [user, navigate]); 
+
     return (
         <>
             <section id="profile-photo-page">

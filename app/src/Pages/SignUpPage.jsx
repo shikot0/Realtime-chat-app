@@ -76,7 +76,6 @@ function SignUpPage() {
                 })
             })
             const response = await data.json();
-            console.log(response)
             if(response.status === false) {
                 toast.error(response.msg, toastOptions);
             }else if(response.status === true) {
