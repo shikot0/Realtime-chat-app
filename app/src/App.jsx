@@ -3,6 +3,7 @@ import SignUpPage from './Pages/SignUpPage';
 import ProfilePhotoPage from './Pages/ProfilePhotoPage';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {DragProvider} from './utils/GlobalContext';
+import {Analytics} from '@vercel/analytics/react'
 
 function App() {
   return ( 
@@ -16,6 +17,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </main> 
+      <Analytics/>
     </DragProvider>
   );
 }
