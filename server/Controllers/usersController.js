@@ -73,6 +73,7 @@ module.exports.getProfilePicture = async (req, res, next) => {
         next(err)
     }
 }
+
 module.exports.getAllUsers = async (req, res, next) => {
     try {
         const users = await User.find({_id:{$ne: req.params.id}}).select([
