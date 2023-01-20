@@ -24,7 +24,6 @@ function Contact({details, index, currentSelected, changeCurrentChat}) {
     }
 
     useEffect(getLastMessage,[getLastMessage]);
-    console.log(`${getProfilePictureRoute}/${details._id}`)
     return(
         <article onClick={() => {changeCurrentChat(index, details)}}  className={index === currentSelected ? "selected contact": 'contact'}>
             <div className="profile-picture-wrapper">
