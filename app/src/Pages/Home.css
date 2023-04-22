@@ -73,7 +73,7 @@ main.dragging .divider {
 
 .divider {
   position: absolute;
-  width: .3rem;
+  width: .5rem;
   height: 100%;
   top: 0;
   left: var(--left);
@@ -84,7 +84,6 @@ main.dragging .divider {
 }
 .divider:active {
   width: 1rem;
-  /* translate: -50%; */
 }
 
 @media screen and (max-width: 500px) {

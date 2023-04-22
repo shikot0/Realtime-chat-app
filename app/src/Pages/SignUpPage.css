@@ -53,7 +53,7 @@ input {
 	padding: .5rem 1rem;
 	font-size: 1rem;
 	border: 1px solid rgba(255, 255, 255, 0.5);
-	width: 90%;
+	width: 80%;
 	color: white;
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,
 	linear-gradient(to bottom left, rgb(34, 0, 255), rgb(144, 0, 255)) border-box;
