@@ -14,11 +14,11 @@ app.use(fileuploader());
 app.use('/api/auth', userRoutes)
 app.use('/api/messages', messageRoutes)
  
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    console.log(`DB is running at ${process.env.MONGO_URL}`)
+    console.log(`DB is running at ${process.env.MONGO_URI}`)
 }).catch(err => {
     console.log(`There was an error, details: ${err}`)
 });
