@@ -17,7 +17,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </main> 
-      {/* <Analytics/> */}
+      <Analytics/>
     </DragProvider>
   );
 }
